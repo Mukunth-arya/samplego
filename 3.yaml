@@ -1,0 +1,16 @@
+---
+- name: here comes the files to deploy cluster
+  hosts:  myinternal
+  gather_facts: true
+  become: true
+  tasks:
+    - name: here comes the first play to deploy pod
+      command: kubectl create -f deployment.yaml
+      args:
+        chdir: /home/mukunth/ansible
+    - name: here we dploy the services
+      command: kubectl create-f services.yaml
+      args:
+        chdir: /home/mukunth/ansible
+...
+    

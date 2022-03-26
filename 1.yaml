@@ -1,0 +1,32 @@
+---
+- name: here comes the playbook for the building the docker image to intialize the cluster
+  hosts: myinternal
+  gather_facts: true
+  become: true
+  tasks:
+    - name: here comes the  first block to ensure that the docker is installed
+      apt: 
+        name: "{{ item }}"
+        state: present
+        with_items:
+          - docker.io
+        ignore_errors: yes
+        tags: 
+          - mydocker
+    - name: here comes the second block to start the docker service
+      service:
+        name: "{{ item }}"
+        state: started
+        with_items:
+          - docker
+        ignore_errors: yes
+    - name: here comes comes the third block to implement the docker-build
+      command: docker build . -t mukuntharya2022/myapp:${DOCKER_TAG} 
+      args:
+        chdir: /home/mukunth/go
+    - name: here we push docker images to docker repo
+      command: docker push mukuntharya2022/myapp:${DOCKER_TAG}
+...
+          
+         
+    

@@ -1,0 +1,53 @@
+---
+- name: here comes the playbook for installation for minikube inside the cluster
+  hosts: myinternal
+  gather_facts: true
+  become: true
+  tasks:
+    - name: here we install the basic packages needed to install the app
+      apt:
+        name: "{{ item }}"
+        state: present
+        with_items:
+          - curl
+          - transport-https
+        ignore_errors: yes
+        ignore_unreachable: yes
+        tags:
+          - myapp1
+    - name: here we install virtual box hypervisor
+      apt:
+        name: "{{ item }}"
+        state: present
+        with_items:
+          - virtualbox
+        ignore_errors: yes
+        ignore_unreachable: yes
+        tags:
+          - myapp2
+    - name: here we install the minikube in the ubuntu
+      command: wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    - name: here we copy the minikube file to following repo
+      copy:
+        src: minikube-linux-amd64minikube-linux-amd64
+        dest: /usr/local/bin/minikube
+        mode: 0777
+    - name: here we  install kubectl 
+      apt:
+        name: "{{ item }}"
+        state: present
+        with_items:
+          - kubectl=1.18.5-00
+        ignore_errors: yes
+        ignore_unreachable: yes
+        tags:
+          - myapp3
+    - name: here we install the kubectl in the playbook
+      command: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    - name: herewe give permission to execute
+      command: "{{ item }}"
+      with_items:
+        - chmod 777 ./kubectl
+        - mv ./kubectl /usr/local/bin/kubectl 
+       
+...
