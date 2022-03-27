@@ -16,7 +16,7 @@
       command: wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
     - name: here we copy the minikube file to following repo
       copy:
-        src: minikube-linux-amd64minikube-linux-amd64
+        src: minikube-linux-amd64
         dest: /usr/local/bin/minikube
     - name: here we set the execution permission
       command: chmod 0777 /usr/local/bin/minikube
