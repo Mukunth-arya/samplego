@@ -8,8 +8,7 @@
       apt:
         name: conntrack
         state: present
-    - name: here we start the kunernetescluster
-      command: sudo minikube start --driver=none
+   
     - name: here comes the first play to deploy pod
       command: kubectl create -f deployment.yaml
       args:
