@@ -17,14 +17,15 @@
       copy:
         src: /home/mukunth/minikube-linux-amd64
         dest: /usr/local/bin/minikube
+       
     - name: here we set the execution permission
-      command: chmod 0777 /usr/local/bin/minikube
+      shell: chmod 0777 /usr/local/bin/minikube
     
         
     - name: here we install the kubectl in the playbook
-      command: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+      shell: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
     - name: herewe give permission to execute
-      command: chmod 777 ./kubectl
+      shell: chmod 777 ./kubectl
     - name: here we set the command
       command: mv ./kubectl /usr/local/bin/kubectl 
         
