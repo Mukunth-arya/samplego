@@ -4,8 +4,12 @@
   remote_user: mukunth
   become: true
   tasks:
+    - name: here we install contrack tool
+      apt:
+        name: conntrack
+        state: present
     - name: here we start the kunernetescluster
-      command: minikube start --driver=none
+      command: sudo minikube start --driver=none
     - name: here comes the first play to deploy pod
       command: kubectl create -f deployment.yaml
       args:
