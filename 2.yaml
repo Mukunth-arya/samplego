@@ -3,6 +3,7 @@
   hosts: myinternal
   gather_facts: true
   become: true
+  remote_user: true
   tasks:
     - name: here we install the basic packages needed to install the app
       apt:
@@ -11,8 +12,6 @@
         with_items:
           - curl
           - transport-https
-        ignore_errors: yes
-        ignore_unreachable: yes
         tags:
           - myapp1
     - name: here we install virtual box hypervisor
@@ -21,8 +20,6 @@
         state: present
         with_items:
           - virtualbox
-        ignore_errors: yes
-        ignore_unreachable: yes
         tags:
           - myapp2
     - name: here we install the minikube in the ubuntu
@@ -38,8 +35,6 @@
         state: present
         with_items:
           - kubectl=1.18.5-00
-        ignore_errors: yes
-        ignore_unreachable: yes
         tags:
           - myapp3
     - name: here we install the kubectl in the playbook
