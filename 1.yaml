@@ -1,6 +1,6 @@
 ---
 - name: here comes the playbook for the building the docker image to intialize the cluster
-  hosts: myinternal
+  hosts: all
   gather_facts: true
   become: true
   tasks:
