@@ -4,15 +4,6 @@
   become: true
   remote_user: mukunth
   tasks:
-    - name: here comes the  first block to ensure that the docker is installed
-      apt: 
-        name: "{{ item }}"
-        state: present
-        with_items:
-          - docker.io
-        ignore_errors: yes
-        tags: 
-          - mydocker
     - name: here comes the second block to start the docker service
       service:
         name: "{{ item }}"
