@@ -8,10 +8,6 @@
       apt:
         name: curl  
         state: present
-    - name: here we install transport&https package
-      apt:
-        name: transport-https
-        state: present
     - name: here we install virtual box hypervisor
       apt:
         name: virtualbox
