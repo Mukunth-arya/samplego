@@ -12,8 +12,15 @@
       command: docker build -t  myapp .
       args:
         chdir: /home/mukunth/go
-    - name: here we push docker images to docker repo
-      command: docker push mukuntharya2022/myapp:${DOCKER_TAG}
+    - name: "tag the image"
+      docker_image:
+        name: "myapp:myapp"
+        repository: "mukuntharya2022:myapp"
+
+    - name: "push to docker registry"
+      docker_image:
+        name: "mukuntharya2022:myapp"
+        push: yes
 ...
           
          
