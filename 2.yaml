@@ -2,7 +2,7 @@
 - name: here comes the playbook for installation for minikube inside the cluster
   hosts: myinternal
   become: true
-  remote_user: true
+  remote_user: mukunth
   tasks:
     - name: here we install the basic packages needed to install the app
       apt:
