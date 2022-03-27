@@ -2,6 +2,7 @@
 - name: here comes the playbook for the building the docker image to intialize the cluster
   hosts: all
   become: true
+  remote_user: mukunth
   tasks:
     - name: here comes the  first block to ensure that the docker is installed
       apt: 
