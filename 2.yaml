@@ -6,7 +6,11 @@
   tasks:
     - name: here we install the basic packages needed to install the app
       apt:
-        name: curl  && transport-https
+        name: curl  
+        state: present
+    - name: here we install transport&https package
+      apt:
+        name: transport-https
         state: present
     - name: here we install virtual box hypervisor
       apt:
