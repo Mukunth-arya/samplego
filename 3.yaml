@@ -5,7 +5,7 @@
   become: true
   tasks:
     - name: here we start the kunernetescluster
-      command: minikube start
+      command: minikube start --driver=docker
     - name: here comes the first play to deploy pod
       command: kubectl create -f deployment.yaml
       args:
