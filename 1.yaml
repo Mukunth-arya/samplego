@@ -6,10 +6,8 @@
   tasks:
     - name: here comes the second block to start the docker service
       service:
-        name: "{{ item }}"
+        name: docker
         state: started
-        with_items:
-          - docker
         ignore_errors: yes
     - name: here comes comes the third block to implement the docker-build
       command: docker build . -t mukuntharya2022/myapp:${DOCKER_TAG} 
