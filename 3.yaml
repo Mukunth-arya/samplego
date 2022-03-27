@@ -9,10 +9,7 @@
         name: conntrack
         state: present
    
-    - name: here comes the first play to deploy pod
-      command: kubectl create -f deployment.yaml
-      args:
-        chdir: /home/mukunth/ansible
+    
     - name: here we dploy the services
       command: kubectl create-f services.yaml
       args:
