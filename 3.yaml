@@ -1,9 +1,13 @@
 ---
 - name: here comes the files to deploy cluster
-  hosts:  myinternal
-  gather_facts: true
+  hosts: all
+  remote_user: mukunth
   become: true
   tasks:
+    - name: here we start the kunernetescluster
+      service:
+        name: minikube
+        state: started
     - name: here comes the first play to deploy pod
       command: kubectl create -f deployment.yaml
       args:
