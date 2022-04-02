@@ -1,0 +1,26 @@
+---
+- name: here we deploy the kuberenets cluster
+  hosts: master
+  become: true
+  tasks:
+    - name: here we create the first deploy
+      command: kubectl create -f  1.yaml
+      args:
+        chdir: /home/kubernetes/
+    - name: here we create the second deploy
+      command: kubectl create -f 2.yaml
+      args:
+        chdir: /home/kubernetes/
+    - name: here we create the third deploy
+      command: kubectl create -f 3.yaml 
+      args:
+        chdir: /home/kubernetes/
+    - name: here we create the fourth play
+      command: kubectl create -f 5.yaml
+      args:
+        chdir: /home/kubernetes/
+    - name: here we create  the fifth play
+      command: kubectl create -f 4.yaml 
+      args:
+        chdir: /home/kubernetes/
+...        
