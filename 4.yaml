@@ -4,8 +4,6 @@
   become: true
   remote_user: mukunth
   tasks:
-    - name: here we create the namespace
-      command: kubectl create namespace monitor
     
     - name: here we create the second deploy
       command: kubectl create -f 2.yaml
