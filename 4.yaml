@@ -6,10 +6,7 @@
   tasks:
     - name: here we create the namespace
       command: kubectl create namespace monitor
-    - name: here we create the first deploy
-      command: kubectl create -f  1.yaml
-      args:
-        chdir: /home/kubernetes/
+    
     - name: here we create the second deploy
       command: kubectl create -f 2.yaml
       args:
