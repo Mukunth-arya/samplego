@@ -2,7 +2,10 @@
 - name: here we deploy the kuberenets cluster
   hosts: master
   become: true
+  remote_user: mukunth
   tasks:
+    - name: here we create the namespace
+      command: kubectl create namespace monitor
     - name: here we create the first deploy
       command: kubectl create -f  1.yaml
       args:
