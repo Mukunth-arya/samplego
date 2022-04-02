@@ -1,6 +1,6 @@
 ---
 - name: here we deploy the kuberenets cluster
-  hosts: master
+  hosts: all
   become: true
   remote_user: mukunth
   tasks:
