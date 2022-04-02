@@ -15,9 +15,5 @@
       args:
         chdir: /home/mukunth/ansible
     
-    - name: here we dploy the services
-      command: kubectl create -f services.yaml
-      args:
-        chdir: /home/mukunth/ansible
 ...
     
