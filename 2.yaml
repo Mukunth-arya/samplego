@@ -4,10 +4,6 @@
   become: true
   remote_user: mukunth
   tasks:
-    - name: here we install the basic packages needed to install the app
-      apt:
-        name: curl  
-        state: present
     - name: here we install virtual box hypervisor
       apt:
         name: virtualbox
