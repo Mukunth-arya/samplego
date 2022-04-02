@@ -12,11 +12,7 @@
       service:
         name: docker
         state: started
-    - name: here comes comes the third block to implement the docker-build
-      docker_login:
-        username: mukuntharya2022
-        password: mukunth@1996
-        email: mukuntharya2022@gmail.com
+   
 ...
           
          
