@@ -12,7 +12,8 @@
       apt:
         name: virtualbox
     - name: here we install the minikube in the ubuntu
-      command: wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   state: present
+      command: wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   
+      state: present
      
    
     - name: here we copy the minikube file to following repo
