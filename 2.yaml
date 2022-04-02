@@ -2,7 +2,6 @@
 - name: here comes the playbook for installation for minikube inside the cluster
   hosts: all
   become: true
-  remote_user: mukunth
   tasks:
     - name: here we install virtual box hypervisor
       apt:
