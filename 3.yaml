@@ -10,6 +10,15 @@
         state: present
     - name: here we start the kunernetescluster
       command: sudo minikube start --driver=none
+      
+    - name: here we install helm in the following package
+      command: wget https://get.helm.sh/helm-v3.4.1-linux-amd64.tar.gz
+    - name: here we unzip the following downloaded file
+      command: tar zxvf helm-v3.4.1-linux-amd64.tar.gz
+    - name: move unzip file into the user executable /usr/local/bin
+      command: sudo mv linux-amd64/helm /usr/local/bin
+    
+    
     
     
 ...
