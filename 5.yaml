@@ -5,7 +5,7 @@
   remote_user: mukunth
   tasks:
     - name: here we deploy the golangapp
-      command: helm install myapp1
+      command: helm install  --values=values.yaml myapp1
       args:
         chdir: /home/
     - name: here we install the prometheus/graffana tool
