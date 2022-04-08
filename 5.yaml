@@ -1,0 +1,14 @@
+---
+- name: here we deploy the kubernetes file
+  hosts: all
+  become: true
+  remote_user: mukunth
+  tasks:
+    - name: here we deploy the golangapp
+      command: helm install myapp1
+      args:
+        chdir: /home/
+    - name: here we install the prometheus/graffana tool
+      command: helm install stable/prometheus-operator
+...
+    
