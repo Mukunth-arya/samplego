@@ -5,9 +5,17 @@
   remote_user: mukunth
   tasks:
     - name: here we deploy the golangapp
-      command: helm install  --values=values.yaml myapp1
+      command: kubectl create -f configmap.yaml
       args:
-        chdir: /home/
+        chdir: /home/kubernetes/
+    - name: here we deploy the second app
+      command: kubectl create -f secret.yaml
+      args:
+        chdir: /home/kubernetes/
+    - name: here we deploy the main deployments
+      command: kubectl create -f 1.yaml
+      args: 
+        chdir: /home/kubernetes
     - name: here we install the prometheus/graffana tool
       command: helm install stable/prometheus-operator
 ...
