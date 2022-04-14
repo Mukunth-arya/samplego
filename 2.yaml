@@ -12,8 +12,7 @@
       command: swapoff -a
     - name: here we turn off the swap memory permanetaly
       command: sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-    - name: here we turn on the kubelet service
-      command: systemctl start kubelet
+    
     - name: here we install the minikube in the ubuntu
       command: wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   
      
