@@ -7,7 +7,14 @@
       command: minikube start --driver=none --memory=2200Mi
     - name: Here we install the helm package 
       command: helm install myapp --name golangapp
-      tags:
-        - myfile
-        
+      args:
+        chdir: /home/
+    - name: here we install prometheus&graffana
+      command: helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    - name: here we add the stablefile
+      command: helm repo add stable https://charts.helm.sh/stable
+    - name: here we update the repo
+      command: helm repo update
+    - name: here we install the moitoring tool
+      command: helm install prometheus prometheus-community/kube-prometheus-stack
         
