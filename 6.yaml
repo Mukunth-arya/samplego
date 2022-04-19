@@ -1,0 +1,13 @@
+- name: here we install ansible playbook
+  hosts: all
+  become: true
+  remote_user: mukunth
+  tasks:
+    - name: Here we initialize the cluster
+      command: minikube start --driver=none --memory=2200Mi
+    - name: Here we install the helm package 
+      command: helm install myapp --name golangapp
+      tags:
+        - myfile
+        
+        
