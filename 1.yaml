@@ -12,8 +12,7 @@
       service:
         name: docker
         state: started
-    - name: here we give the cred to docker for executable
-      command: usermod -aG root docker
+    
 ...
           
          
