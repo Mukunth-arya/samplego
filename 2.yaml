@@ -4,10 +4,7 @@
   become: true
   remote_user: mukunth
   tasks:
-    - name: here we install virtual box hypervisor
-      apt:
-        name: virtualbox
-        state: present
+    
     - name: here we turn off the swap memory off
       command: swapoff -a
     - name: here we turn off the swap memory permanetaly
